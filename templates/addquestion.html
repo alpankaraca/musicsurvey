@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if audio %}
+        <audio class="player" src="/static/audio/{{ audio }}">
+            Your browser does not support the <code>audio</code> element.
+        </audio>
+
+        <div class="col-xs-6" style="margin-top: 30px;">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#multi" data-toggle="tab">Multi Choice</a></li>
+                <li><a href="#comment" data-toggle="tab">Comment Question</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="multi">
+
+                    <form class="form-horizontal" id="audio-form" method=POST enctype=multipart/form-data
+                          action="{{ url_for('addquestion') }}?audio=1">
+
+                        <div class="form-group">
+                            <label for="soru" class="col-sm-2 control-label">Question</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="soru" id="soru" cols="15" rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cevap-a " class="col-sm-2 control-label">A )</label>
+
+                            <div class="col-sm-10">
+                                <div class="">
+                                    <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="radio-cevap">
+                            </span>
+                                        <input type="text" id="cevap-a" class="form-control">
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                                <!-- /.col-lg-6 -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cevap-b " class="col-sm-2 control-label">B )</label>
+
+                            <div class="col-sm-10">
+                                <div class="">
+                                    <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="radio-cevap">
+                            </span>
+                                        <input type="text" id="cevap-b" class="form-control">
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                                <!-- /.col-lg-6 -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cevap-c " class="col-sm-2 control-label">C )</label>
+
+                            <div class="col-sm-10">
+                                <div class="">
+                                    <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="radio-cevap">
+                            </span>
+                                        <input type="text" id="cevap-c" class="form-control">
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                                <!-- /.col-lg-6 -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cevap-d " class="col-sm-2 control-label">D )</label>
+
+                            <div class="col-sm-10">
+                                <div class="">
+                                    <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="radio-cevap">
+                            </span>
+                                        <input type="text" id="cevap-d" class="form-control">
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                                <!-- /.col-lg-6 -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cevap-e " class="col-sm-2 control-label">E )</label>
+
+                            <div class="col-sm-10">
+                                <div class="">
+                                    <div class="input-group">
+                            <span class="input-group-addon">
+                                <input type="radio" name="radio-cevap">
+                            </span>
+                                        <input type="text" id="cevap-e" class="form-control">
+                                    </div>
+                                    <!-- /input-group -->
+                                </div>
+                                <!-- /.col-lg-6 -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            <div class="tab-pane fade" id="comment">...</div>
+            </div>
+        </div>
+    {% else %}
+
+        <div class="col-xs-6">
+            <form class="form-horizontal" id="audio-form" method=POST enctype=multipart/form-data
+                  action="{{ url_for('addquestion') }}?audio=1">
+                <div class="form-group">
+                    <input type="file" name="audio">
+
+                    <p class="help-block">Upload an mp3 file</p>
+                </div>
+
+                <button type="submit" class="btn btn-default">Save</button>
+            </form>
+        </div>
+
+    {% endif %}
+
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            $('#save-music').on("click", function () {
+                $.get("?audio=1", $("#audio-form").serialize(true), function (data) {
+                    console.log(data);
+                });
+            })
+
+
+            var settings = {
+                progressbarWidth: '550px',
+                progressbarHeight: '5px',
+                progressbarColor: '#22ccff',
+                progressbarBGColor: '#eeeeee',
+                defaultVolume: 1
+            };
+            $(".player").player(settings);
+        })
+
+    </script>
+{% endblock %}

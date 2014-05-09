@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="col-xs-4 form-inline">
+        <div class="form-group">
+            <input type="number" class="form-control input-sm" id="age" placeholder="Age">
+        </div>
+        <select class="form-control input-sm" id="sex">
+            <option value="0">Male</option>
+            <option value="1">Female</option>
+        </select>
+        <a class="btn btn-default btn-sm" id="enter">Enter <i class="glyphicon glyphicon-music"></i></a>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="musician"> Check if you are a musician
+            </label>
+        </div>
+    </div>
+
+
+{% endblock %}
+{% block js %}
+    <script>
+   $(document).ready(function() {
+        $("#enter").on("click", function() {
+            console.log("annen");
+            $.post("?age="+$("#age").val()+"&sex="+$("#sex").val()+"&musician="+$("#musician").is(':checked'), function() {
+                //console.log("?age="+$("#age").val()+"&sex="+$("#sex").val()+"&musician="+$("#musician").is(':checked'));
+                window.location.replace("/question");
+            })
+        })
+   })
+
+</script>
+{% endblock %}
