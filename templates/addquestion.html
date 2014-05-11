@@ -151,33 +151,87 @@
                             <h4 class="list-group-item-heading">{{ q.soru }}</h4>
 
                             <p class="list-group-item-text showa">A) {{ q.answera }}</p>
+
                             <p class="list-group-item-text showb">B) {{ q.answerb }}</p>
+
                             <p class="list-group-item-text showc">C) {{ q.answerc }}</p>
+
                             <p class="list-group-item-text showd">D) {{ q.answerd }}</p>
+
                             <p class="list-group-item-text showe">E) {{ q.answere }}</p>
+
                             <p class="list-group-item-text showe">Corrent answer is <b>{{ q.correctanswer }}</b></p>
                         </a>
                     {% endif %}
-                        {% else %}
-                    <li><em>Unbelievable. No entries here so far</em>
+                {% else %}
+                    <em>Please add some questions</em>
                 {% endfor %}
 
             </div>
         </div>
     {% else %}
 
-        <div class="col-xs-6">
-            <form class="form-horizontal" id="audio-form" method=POST enctype=multipart/form-data
+        <div class="col-xs-12">
+            <form class="form-inline" id="audio-form" method=POST enctype=multipart/form-data
                   action="{{ url_for('addquestion') }}?audio=1">
                 <div class="form-group">
-                    <input type="file" name="audio">
+                    <input class="btn btn-success" type="file" name="audio">
 
-                    <p class="help-block">Upload an mp3 file</p>
                 </div>
 
-                <button type="submit" class="btn btn-default">Save</button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Upload</button>
+                </div>
             </form>
         </div>
+
+        <div class="col-xs-12 show-questions">
+            <div class="page-header">
+                <h1>Questions added below
+                    <small>to add more start from above </small>
+                </h1>
+            </div>
+            {% for s in sounds %}
+                <div class="show-soru">
+                    <audio class="player" src="/static/audio/{{ s.sound }}">
+                        Your browser does not support the <code>audio</code> element.
+                    </audio>
+                    <br/><b>File name: </b>{{ s.sound }}
+                    <div class="clearfix"></div>
+                    <div class="list-group">
+                        {% for q in s.qs %}
+                            {% if q.comment %}
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">{{ q.comment }}</h4>
+
+                                </a>
+                            {% else %}
+                                <a href="#" class="list-group-item">
+                                    <h4 class="list-group-item-heading">{{ q.soru }}</h4>
+
+                                    <p class="list-group-item-text showa">A) {{ q.answera }}</p>
+
+                                    <p class="list-group-item-text showb">B) {{ q.answerb }}</p>
+
+                                    <p class="list-group-item-text showc">C) {{ q.answerc }}</p>
+
+                                    <p class="list-group-item-text showd">D) {{ q.answerd }}</p>
+
+                                    <p class="list-group-item-text showe">E) {{ q.answere }}</p>
+
+                                    <p class="list-group-item-text showe">Corrent answer is <b>{{ q.correctanswer }}</b>
+                                    </p>
+                                </a>
+                            {% endif %}
+                        {% else %}
+                            <em>No questions added</em>
+                        {% endfor %}
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
 
     {% endif %}
 

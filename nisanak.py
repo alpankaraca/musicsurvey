@@ -27,6 +27,10 @@ def login():
             print "login tamam"
             session['username'] = request.form['username']
             return redirect(url_for('addquestion'))
+        if request.form['username'] == "nisan" and request.form['password'] == "123456_ooo":
+            print "login tamam"
+            session['username'] = request.form['username']
+            return redirect(url_for('addquestion'))
     return render_template('login.html')
 
 @app.route('/logout')
@@ -38,6 +42,7 @@ def logout():
 
 @app.route('/addquestion', methods=["GET", "POST"])
 def addquestion():
+    sound = Question.objects().all()
     if session.get("username") is None:
         return redirect("/god")
 
@@ -100,7 +105,7 @@ def addquestion():
             sound.save()
             am = Question.objects.get(id=request.args.get("addquestion")).qs
             return render_template("addquestion.html", audio=sound.sound, id=sound.id, qs=am)
-    return render_template('addquestion.html')
+    return render_template('addquestion.html', sounds=sound)
 
 
 
