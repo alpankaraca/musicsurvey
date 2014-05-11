@@ -2,15 +2,20 @@
 import datetime
 import os
 from flask import Flask, redirect, render_template, request, url_for, session, current_app
+from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
+from flask.ext.mongomyadmin import MongoMyAdmin
 from mongoengine import connect
 from werkzeug.utils import secure_filename
 from Models.User import User
-from Models.Soru import Question
+from Models.Soru import Question, SubQuestion
+from flask.ext.admin import Admin
 
 app = Flask(__name__)
 app.config.from_pyfile('appsettings.cfg')
 
 connect(app.config.get("DB_NAME"), host='mongodb://' +app.config.get("DB_HOST_ADDRESS") )
+
+m = MongoMyAdmin(app)
 
 @app.route('/')
 def home():
@@ -63,10 +68,42 @@ def addquestion():
                 file.save(os.path.join(os.path.abspath(os.path.dirname(__file__) + current_app.config['UPLOAD_FOLDER']), filename))
                 s.sound = filename
                 s.save()
-                return render_template("addquestion.html", audio=filename)
+                return render_template("addquestion.html", audio=filename, id=s.id)
             else:
                 return "Yanlış dosya tipi"
+
+        if request.args.get("addcommentquestion"):
+            sound = Question.objects.get(id=request.args.get("addcommentquestion"))
+            qs = sound.qs
+            temp = qs
+            soru = SubQuestion()
+            soru.comment = request.form.get("commentsoru")
+            temp.append(soru)
+            sound.qs = temp
+            sound.save()
+            am = Question.objects.get(id=request.args.get("addquestion")).qs
+            return render_template("addquestion.html", audio=sound.sound, id=sound.id, qs=am)
+
+        if request.args.get("addquestion"):
+            sound = Question.objects.get(id=request.args.get("addquestion"))
+            qs = sound.qs
+            temp = qs
+            soru = SubQuestion()
+            soru.soru = request.form.get("soru")
+            soru.answera = request.form.get("cevap-a")
+            soru.answerb = request.form.get("cevap-b")
+            soru.answerc = request.form.get("cevap-c")
+            soru.answerd = request.form.get("cevap-d")
+            soru.answere = request.form.get("cevap-e")
+            soru.correctanswer = request.form.get("radio-cevap")
+            temp.append(soru)
+            sound.qs = temp
+            sound.save()
+            am = Question.objects.get(id=request.args.get("addquestion")).qs
+            return render_template("addquestion.html", audio=sound.sound, id=sound.id, qs=am)
     return render_template('addquestion.html')
+
+
 
 @app.route('/register', methods=["GET", "POST"])
 def register():

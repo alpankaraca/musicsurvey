@@ -5,18 +5,17 @@
         <audio class="player" src="/static/audio/{{ audio }}">
             Your browser does not support the <code>audio</code> element.
         </audio>
-
         <div class="col-xs-6" style="margin-top: 30px;">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#multi" data-toggle="tab">Multi Choice</a></li>
                 <li><a href="#comment" data-toggle="tab">Comment Question</a></li>
             </ul>
 
-            <div class="tab-content">
+            <div class="tab-content add-questions">
                 <div class="tab-pane fade in active" id="multi">
 
-                    <form class="form-horizontal" id="audio-form" method=POST enctype=multipart/form-data
-                          action="{{ url_for('addquestion') }}?audio=1">
+                    <form class="form-horizontal" id="q-form" method=POST enctype=multipart/form-data
+                          action="{{ url_for('addquestion') }}?addquestion={{ id }}">
 
                         <div class="form-group">
                             <label for="soru" class="col-sm-2 control-label">Question</label>
@@ -33,9 +32,9 @@
                                 <div class="">
                                     <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="radio-cevap">
+                                <input type="radio" name="radio-cevap" value="a">
                             </span>
-                                        <input type="text" id="cevap-a" class="form-control">
+                                        <input type="text" name="cevap-a" class="form-control">
                                     </div>
                                     <!-- /input-group -->
                                 </div>
@@ -49,9 +48,9 @@
                                 <div class="">
                                     <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="radio-cevap">
+                                <input type="radio" name="radio-cevap" value="b">
                             </span>
-                                        <input type="text" id="cevap-b" class="form-control">
+                                        <input type="text" name="cevap-b" class="form-control">
                                     </div>
                                     <!-- /input-group -->
                                 </div>
@@ -65,9 +64,9 @@
                                 <div class="">
                                     <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="radio-cevap">
+                                <input type="radio" name="radio-cevap" value="c">
                             </span>
-                                        <input type="text" id="cevap-c" class="form-control">
+                                        <input type="text" name="cevap-c" class="form-control">
                                     </div>
                                     <!-- /input-group -->
                                 </div>
@@ -81,9 +80,9 @@
                                 <div class="">
                                     <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="radio-cevap">
+                                <input type="radio" name="radio-cevap" value="d">
                             </span>
-                                        <input type="text" id="cevap-d" class="form-control">
+                                        <input type="text" name="cevap-d" class="form-control">
                                     </div>
                                     <!-- /input-group -->
                                 </div>
@@ -97,18 +96,72 @@
                                 <div class="">
                                     <div class="input-group">
                             <span class="input-group-addon">
-                                <input type="radio" name="radio-cevap">
+                                <input type="radio" name="radio-cevap" value="e">
                             </span>
-                                        <input type="text" id="cevap-e" class="form-control">
+                                        <input type="text" name="cevap-e" class="form-control">
                                     </div>
                                     <!-- /input-group -->
                                 </div>
                                 <!-- /.col-lg-6 -->
                             </div>
                         </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="save-q" class="btn btn-default pull-right">Save</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
                     </form>
                 </div>
-            <div class="tab-pane fade" id="comment">...</div>
+                <div class="tab-pane fade" id="comment">
+
+                    <form class="form-horizontal" id="q-form" method=POST enctype=multipart/form-data
+                          action="{{ url_for('addquestion') }}?addcommentquestion={{ id }}">
+
+                        <div class="form-group">
+                            <label for="soru" class="col-sm-2 control-label">Question</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="commentsoru" id="soru" cols="15"
+                                          rows="3"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" id="save-q-c" class="btn btn-default pull-right">Save</button>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="list-group">
+                {% for q in qs %}
+                    {% if q.comment %}
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">{{ q.comment }}</h4>
+
+                        </a>
+                    {% else %}
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading">{{ q.soru }}</h4>
+
+                            <p class="list-group-item-text showa">A) {{ q.answera }}</p>
+                            <p class="list-group-item-text showb">B) {{ q.answerb }}</p>
+                            <p class="list-group-item-text showc">C) {{ q.answerc }}</p>
+                            <p class="list-group-item-text showd">D) {{ q.answerd }}</p>
+                            <p class="list-group-item-text showe">E) {{ q.answere }}</p>
+                            <p class="list-group-item-text showe">Corrent answer is <b>{{ q.correctanswer }}</b></p>
+                        </a>
+                    {% endif %}
+                        {% else %}
+                    <li><em>Unbelievable. No entries here so far</em>
+                {% endfor %}
+
             </div>
         </div>
     {% else %}
@@ -132,7 +185,7 @@
 {% block js %}
     <script>
         $(document).ready(function () {
-            $('#save-music').on("click", function () {
+            $('#save-q').on("click", function () {
                 $.get("?audio=1", $("#audio-form").serialize(true), function (data) {
                     console.log(data);
                 });

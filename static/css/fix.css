@@ -1,3 +1,8 @@
 .cevap-line {
     margin-top: 10px;
 }
+.add-questions.tab-content {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+}
