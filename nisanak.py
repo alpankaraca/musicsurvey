@@ -8,7 +8,6 @@ from mongoengine import connect
 from werkzeug.utils import secure_filename
 from Models.User import User
 from Models.Soru import Question, SubQuestion
-from flask.ext.admin import Admin
 
 app = Flask(__name__)
 app.config.from_pyfile('appsettings.cfg')
@@ -81,7 +80,7 @@ def addquestion():
             temp.append(soru)
             sound.qs = temp
             sound.save()
-            am = Question.objects.get(id=request.args.get("addquestion")).qs
+            am = Question.objects.get(id=request.args.get("addcommentquestion")).qs
             return render_template("addquestion.html", audio=sound.sound, id=sound.id, qs=am)
 
         if request.args.get("addquestion"):
