@@ -9,3 +9,14 @@
 .show-questions {
     margin-top: 20px;
 }
+.list-group {
+}
+.list-group-item {
+    position: relative;
+    padding-left: 70px;
+}
+.removeq {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}

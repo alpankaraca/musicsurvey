@@ -42,7 +42,7 @@ def logout():
 
 @app.route('/addquestion', methods=["GET", "POST"])
 def addquestion():
-    sound = Question.objects().all()
+    soundMaster = Question.objects().all()
     if session.get("username") is None:
         return redirect("/god")
 
@@ -105,7 +105,19 @@ def addquestion():
             sound.save()
             am = Question.objects.get(id=request.args.get("addquestion")).qs
             return render_template("addquestion.html", audio=sound.sound, id=sound.id, qs=am)
-    return render_template('addquestion.html', sounds=sound)
+
+        if request.args.get("delaudio"):
+            id = request.args.get("delaudio")
+            sound = Question.objects.get(id=id).delete()
+            return "Ses silindi"
+
+        if request.args.get("delmulti"):
+            print request.args.get("id")
+            print int(request.args.get("delmulti"))-1
+            #sound = Question.objects.get(id=id)
+            #sound.qs.remove(sound.qs[count])
+            #sound.save()
+    return render_template('addquestion.html', sounds=soundMaster)
 
 
 
@@ -129,4 +141,4 @@ def not_found(error):
 
 if __name__ == '__main__':
     print app.root_path
-    app.run(host='0.0.0.0',debug=True)
+    app.run(host='0.0.0.0',debug=True, port=80)
