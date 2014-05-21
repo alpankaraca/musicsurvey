@@ -6,9 +6,6 @@
     border: 1px solid #ddd;
     border-top: none;
 }
-.show-questions {
-    margin-top: 20px;
-}
 .list-group {
 }
 .list-group-item {
@@ -19,4 +16,17 @@
     position: absolute;
     top: 4px;
     left: 4px;
+}
+.step {
+    display: none;
+}
+.smaller {
+    -webkit-transition:height 1s,padding 1s;
+    overflow: hidden;
+    height: 0!important;
+    padding: 0!important;
+    border: none!important;
+}
+.well{
+    min-height: 0;
 }

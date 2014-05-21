@@ -1,9 +1,156 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-annesi
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="col-xs-12 show-questions">
+        <div class="page-header">
+            <h1>Questions added below
+                <small>to add more, start from above</small>
+            </h1>
+        </div>
+        {% for s in ses %}
+            <div class="show-soru">
+                <div class="well step">
+                    <audio class="col-md-10 col-xs-12" src="/static/audio/{{ s.sound }}" controls="controls"
+                           style="margin-bottom: 10px;">
+                        Your browser does not support the <code>audio</code> element.
+                    </audio>
+<span>
+                        <a class="col-md-2 col-xs-12 btn btn-default btn-next" data-name="{{ loop.index }}"
+                           data-id="{{ s.id }}">
+                            Start <i class="glyphicon glyphicon-hand-right"></i>
+                        </a></span>
+
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+                {% for q in s.qs %}
+                    {% if q.comment %}
+                        <div class="well step"><b>{{ q.comment }}</b>
+
+                            <textarea class="form-control" name="" id="" cols="30" rows="3"
+                                      style="margin: 10px 0;"></textarea>
+
+                            <div class="">
+                                <a class="btn btn-default pull-right btn-next" data-name="{{ loop.index }}"
+                                   data-id="{{ s.id }}">
+                                    Next <i class="glyphicon glyphicon-hand-right"></i>
+                                </a>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="well step"><b>{{ q.soru }}</b>
+
+                            <div class="col-xs-12">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="qm-{{ loop.index }}" value="a">
+                                        {{ q.answera }}
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="qm-{{ loop.index }}" value="b">
+                                        {{ q.answerb }}
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="qm-{{ loop.index }}" value="c">
+                                        {{ q.answerc }}
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="qm-{{ loop.index }}" value="d">
+                                        {{ q.answerd }}
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="qm-{{ loop.index }}" value="e">
+                                        {{ q.answere }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <a class="btn btn-default pull-right btn-next" data-name="{{ loop.index }}"
+                                   data-id="{{ s.id }}">
+                                    Next <i class="glyphicon glyphicon-hand-right"></i>
+                                </a>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <em>No questions added</em>
+                {% endfor %}
+
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="col-xs-12 forms">
+        <form id="form1" method="post" action="json.html" class="bbq">
+            <div id="fieldWrapper">
+                <div class="step" id="first">
+
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+{% block js %}
+
+    <script>
+        var fillQs = function (data) {
+            var sesCount = data.length;
+            $.each(data, function (key, val) {
+                $(".forms").append('<audio class="player" src="/static/audio/' + val.sound + '">' +
+                        'Your browser does not support the <code>audio</code> element.</audio>');
+                $(".forms").append('<br />');
+                $.each(val.qs, function (keyy, vall) {
+                    if (vall.comment) {
+                        $(".forms").append(vall.comment + '<br />');
+                    } else {
+                        $(".forms").append(vall.soru + '<br />');
+                        $(".forms").append(vall.answera + '<br />');
+                        $(".forms").append(vall.answerb + '<br />');
+                        $(".forms").append(vall.answerc + '<br />');
+                        $(".forms").append(vall.answerd + '<br />');
+                        $(".forms").append(vall.answere + '<br />');
+                    }
+                });
+            });
+
+
+        };
+
+        $(document).ready(function () {
+            var h = $(".step").first().height() + 'px';
+            $(".step").first().show().css("height",h);
+            console.log(h);
+
+
+
+            $(".btn-next").on("click", function () {
+                $(this).parent().parent().addClass("smaller").delay(1000).queue(function (next) {
+                    $(this).remove();
+                    $(".step").first().fadeIn();
+                    var at = $(".step").first().height()+30 + 'px';
+                    $(".step").first().css("height",at);
+                    next();
+                });
+            });
+
+            //$.getJSON("?getQuestions=1", function (data) {
+            //    fillQs(data);
+            //    $.each(data, function (key, val) {});
+            //});
+        });
+
+    </script>
+{% endblock %}

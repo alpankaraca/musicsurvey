@@ -4,6 +4,7 @@ __author__ = 'alpan'
 
 
 class SubQuestion(document.EmbeddedDocument):
+    comment = fields.StringField()
     soru = fields.StringField()
     answera = fields.StringField()
     answerb = fields.StringField()
@@ -11,7 +12,7 @@ class SubQuestion(document.EmbeddedDocument):
     answerd = fields.StringField()
     answere = fields.StringField()
     correctanswer = fields.StringField()
-    comment = fields.StringField()
+    answers = fields.ListField()
 
 
 class Question(document.Document):

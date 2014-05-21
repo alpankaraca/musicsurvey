@@ -12,7 +12,7 @@ from Models.Soru import Question, SubQuestion
 app = Flask(__name__)
 app.config.from_pyfile('appsettings.cfg')
 
-connect(app.config.get("DB_NAME"), host='mongodb://' +app.config.get("DB_HOST_ADDRESS") )
+connect(app.config.get("DB_NAME"), host='mongodb://' + app.config.get("DB_HOST_ADDRESS") )
 
 m = MongoMyAdmin(app)
 
@@ -50,7 +50,6 @@ def addquestion():
         return redirect("/god")
 
     if request.method == "POST":
-        print "post"
         if request.args.get("audio"):
             print "upload"
             ALLOWED_EXTENSIONS = set(['mp3', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
@@ -108,7 +107,7 @@ def addquestion():
 
         if request.args.get("delaudio"):
             id = request.args.get("delaudio")
-            sound = Question.objects.get(id=id).delete()
+            Question.objects.get(id=id).delete()
             return "Ses silindi"
 
         if request.args.get("delmulti"):
@@ -133,7 +132,12 @@ def register():
 
 @app.route('/question', methods=["GET", "POST"])
 def question():
-    return render_template('question.html')
+    soundMaster = Question.objects().all()
+    if request.args.get("getQuestions"):
+        return soundMaster.to_json()
+    #print soundMaster[1].qs
+    print "anne"
+    return render_template('question.html', ses=soundMaster)
 
 @app.errorhandler(404)
 def not_found(error):
