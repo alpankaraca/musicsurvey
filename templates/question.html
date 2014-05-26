@@ -3,8 +3,8 @@
 {% block content %}
     <div class="col-xs-12 show-questions">
         <div class="page-header">
-            <h1>Questions added below
-                <small>to add more, start from above</small>
+            <h1>Welcome to my survey
+                <small>let's see what you got</small>
             </h1>
         </div>
         {% for s in ses %}
@@ -27,12 +27,12 @@
                     {% if q.comment %}
                         <div class="well step"><b>{{ q.comment }}</b>
 
-                            <textarea class="form-control" name="" id="" cols="30" rows="3"
+                            <textarea class="form-control cm-{{ s.id }}" name="" id="" cols="30" rows="3"
                                       style="margin: 10px 0;"></textarea>
 
                             <div class="">
-                                <a class="btn btn-default pull-right btn-next" data-name="{{ loop.index }}"
-                                   data-id="{{ s.id }}">
+                                <a class="btn btn-default pull-right btn-next" data-name="{{ q.id }}"
+                                   data-id="c-{{ s.id }}">
                                     Next <i class="glyphicon glyphicon-hand-right"></i>
                                 </a>
 
@@ -45,39 +45,39 @@
                             <div class="col-xs-12">
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="qm-{{ loop.index }}" value="a">
+                                        <input type="radio" name="qm-{{ s.id }}" value="{{ q.answera }}">
                                         {{ q.answera }}
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="qm-{{ loop.index }}" value="b">
+                                        <input type="radio" name="qm-{{ s.id }}" value="{{ q.answerb }}">
                                         {{ q.answerb }}
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="qm-{{ loop.index }}" value="c">
+                                        <input type="radio" name="qm-{{ s.id }}" value="{{ q.answerc }}">
                                         {{ q.answerc }}
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="qm-{{ loop.index }}" value="d">
+                                        <input type="radio" name="qm-{{ s.id }}" value="{{ q.answerd }}">
                                         {{ q.answerd }}
                                     </label>
                                 </div>
                                 <div class="radio">
                                     <label>
-                                        <input type="radio" name="qm-{{ loop.index }}" value="e">
+                                        <input type="radio" name="qm-{{ s.id }}" value="{{ q.answere }}">
                                         {{ q.answere }}
                                     </label>
                                 </div>
                             </div>
 
                             <div class="">
-                                <a class="btn btn-default pull-right btn-next" data-name="{{ loop.index }}"
-                                   data-id="{{ s.id }}">
+                                <a class="btn btn-default pull-right btn-next" data-name="{{ q.id }}"
+                                   data-id="m-{{ s.id }}">
                                     Next <i class="glyphicon glyphicon-hand-right"></i>
                                 </a>
 
@@ -106,28 +106,6 @@
 {% block js %}
 
     <script>
-        var fillQs = function (data) {
-            var sesCount = data.length;
-            $.each(data, function (key, val) {
-                $(".forms").append('<audio class="player" src="/static/audio/' + val.sound + '">' +
-                        'Your browser does not support the <code>audio</code> element.</audio>');
-                $(".forms").append('<br />');
-                $.each(val.qs, function (keyy, vall) {
-                    if (vall.comment) {
-                        $(".forms").append(vall.comment + '<br />');
-                    } else {
-                        $(".forms").append(vall.soru + '<br />');
-                        $(".forms").append(vall.answera + '<br />');
-                        $(".forms").append(vall.answerb + '<br />');
-                        $(".forms").append(vall.answerc + '<br />');
-                        $(".forms").append(vall.answerd + '<br />');
-                        $(".forms").append(vall.answere + '<br />');
-                    }
-                });
-            });
-
-
-        };
 
         $(document).ready(function () {
             var h = $(".step").first().height() + 'px';
@@ -137,6 +115,28 @@
 
 
             $(".btn-next").on("click", function () {
+                var dataid = $(this).attr("data-id");
+                var dataname = $(this).attr("data-name");
+                if(dataid.substring(0,1)=="m"){
+                    var subid = 'qm-'+dataid.substring(2);
+                    var val = $("[name="+subid+"]:checked").val();
+                    $.post("?multi="+dataname+"&val="+val+"&ses="+dataid.substring(2), function(){});
+                    //console.log(dataid.substring(2))
+                }else
+                if(dataid.substring(0,1)=="c"){
+                    var subid = 'cm-'+dataid.substring(2);
+                    var val = $("."+subid).val();
+                    console.log(val);
+                    $.post("?comment="+dataname+"&val="+val+"&ses="+dataid.substring(2), function(){});
+                    //console.log(dataid.substring(2))
+                }
+                else{
+                    $.post("?sound="+dataid, function(){});
+                }
+
+
+
+
                 $(this).parent().parent().addClass("smaller").delay(1000).queue(function (next) {
                     $(this).remove();
                     $(".step").first().fadeIn();
@@ -146,10 +146,6 @@
                 });
             });
 
-            //$.getJSON("?getQuestions=1", function (data) {
-            //    fillQs(data);
-            //    $.each(data, function (key, val) {});
-            //});
         });
 
     </script>

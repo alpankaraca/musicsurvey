@@ -24,9 +24,15 @@
     -webkit-transition:height 1s,padding 1s;
     overflow: hidden;
     height: 0!important;
-    padding: 0!important;
+    padding: 0 19px!important;
     border: none!important;
 }
 .well{
     min-height: 0;
+}
+
+.musician,
+.sex,
+.age {
+    float: left;
 }

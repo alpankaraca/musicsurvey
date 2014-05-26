@@ -1,9 +1,12 @@
 from mongoengine import document, fields
+from Models.User import User
 
 __author__ = 'alpan'
 
 
-class SubQuestion(document.EmbeddedDocument):
+
+class SubQuestion(document.Document):
+    sound = fields.StringField()
     comment = fields.StringField()
     soru = fields.StringField()
     answera = fields.StringField()
@@ -14,8 +17,14 @@ class SubQuestion(document.EmbeddedDocument):
     correctanswer = fields.StringField()
     answers = fields.ListField()
 
+class Answer(document.Document):
+    user = fields.ReferenceField(User)
+    subsoru = fields.ReferenceField(SubQuestion)
+    cevap = fields.StringField()
+    correct = fields.BooleanField()
 
 class Question(document.Document):
     name = fields.StringField()
     sound = fields.StringField()
-    qs = fields.ListField(fields.EmbeddedDocumentField(SubQuestion))
+    qs = fields.ListField(fields.ReferenceField(SubQuestion))
+    ans = fields.ListField(fields.ReferenceField(Answer))

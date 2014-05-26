@@ -12,7 +12,7 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/nisanak$nisanak.coverage" NAME="nisanak Coverage Results" MODIFIED="1400712092797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/nisanak$nisanak.coverage" NAME="nisanak Coverage Results" MODIFIED="1401034747970" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -26,31 +26,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="nisanak.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="nisanak.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/nisanak.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="5" selection-start="5308" selection-end="5308" vertical-scroll-proportion="0.0" vertical-offset="1820" max-vertical-offset="2482">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="33" selection-start="869" selection-end="869" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1003">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="question.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/question.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="0" selection-start="5846" selection-end="5846" vertical-scroll-proportion="0.33162394" vertical-offset="2101" max-vertical-offset="2737">
+            <state line="204" column="0" selection-start="7324" selection-end="7324" vertical-scroll-proportion="0.76454294" vertical-offset="3192" max-vertical-offset="3842">
               <folding>
-                <element signature="e#495#523#0" expanded="true" />
-                <element signature="e#1315#1338#0" expanded="true" />
+                <element signature="e#24#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="register.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/register.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="28" selection-start="354" selection-end="354" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="697">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cevaplar.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cevaplar.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="38" column="28" selection-start="1332" selection-end="1332" vertical-scroll-proportion="-2.2692308" vertical-offset="587" max-vertical-offset="1054">
+              <folding>
+                <element signature="e#991#1027#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -59,19 +60,8 @@
       <file leaf-file-name="fix.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/fix.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="16" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+            <state line="26" column="19" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="731">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jquery.simpleplayer.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/jquery.simpleplayer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="52" selection-start="759" selection-end="765" vertical-scroll-proportion="-16.0" vertical-offset="26" max-vertical-offset="1853">
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -79,18 +69,9 @@
       <file leaf-file-name="Soru.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/Soru.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="32" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stepsForm.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/js/stepsForm.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="47" selection-start="2345" selection-end="2349" vertical-scroll-proportion="40.884617" vertical-offset="2491" max-vertical-offset="4097">
+            <state line="23" column="35" selection-start="672" selection-end="672" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="595">
               <folding>
-                <element signature="n#!!doc" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,16 +80,16 @@
       <file leaf-file-name="addquestion.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/addquestion.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="189" column="41" selection-start="8843" selection-end="8843" vertical-scroll-proportion="-10.192307" vertical-offset="2948" max-vertical-offset="4947">
+            <state line="23" column="25" selection-start="1037" selection-end="1037" vertical-scroll-proportion="33.807693" vertical-offset="1270" max-vertical-offset="4947">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/demo.css">
+      <file leaf-file-name="Answers.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Models/Answers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="22" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
+            <state line="11" column="8" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
               <folding />
             </state>
           </provider>
@@ -117,7 +98,7 @@
       <file leaf-file-name="User.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Models/User.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="32" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+            <state line="9" column="38" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
               <folding />
             </state>
           </provider>
@@ -133,9 +114,7 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Models/User.py" />
         <option value="$PROJECT_DIR$/Views/Register.py" />
-        <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/templates/html.html" />
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/appsettings.cfg" />
@@ -144,20 +123,24 @@
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/addquestion.html" />
         <option value="$PROJECT_DIR$/static/css/component.css" />
-        <option value="$PROJECT_DIR$/Models/Soru.py" />
-        <option value="$PROJECT_DIR$/nisanak.py" />
-        <option value="$PROJECT_DIR$/static/css/demo.css" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/static/css/fix.css" />
+        <option value="$PROJECT_DIR$/templates/register.html" />
         <option value="$PROJECT_DIR$/templates/question.html" />
+        <option value="$PROJECT_DIR$/static/css/fix.css" />
+        <option value="$PROJECT_DIR$/static/css/demo.css" />
+        <option value="$PROJECT_DIR$/Models/Answers.py" />
+        <option value="$PROJECT_DIR$/Models/Soru.py" />
+        <option value="$PROJECT_DIR$/templates/cevaplar.html" />
+        <option value="$PROJECT_DIR$/Models/User.py" />
+        <option value="$PROJECT_DIR$/nisanak.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -185,7 +168,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -284,12 +266,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="vcs.Git" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/site/gastro" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -510,27 +493,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22204472" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23413897" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31431648" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3495935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284553" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -550,34 +533,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/css/simpleplayer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="45" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="88" selection-start="0" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="629">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/Soru.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="17" selection-start="322" selection-end="335" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="425">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Models/User.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="238">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="697" />
@@ -591,7 +546,9 @@
     <entry file="file://$PROJECT_DIR$/nisanak.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1649">
-          <folding />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -609,9 +566,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/simpleplayer.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="45" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="646">
-          <folding />
-        </state>
+        <state line="11" column="45" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="187" max-vertical-offset="646" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/jquery.simpleplayer.js">
@@ -621,15 +576,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="88" selection-start="0" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="629">
-          <folding />
-        </state>
+        <state line="10" column="88" selection-start="0" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/Soru.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="26" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -653,7 +608,9 @@
     <entry file="file://$PROJECT_DIR$/nisanak.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="56" selection-start="2257" selection-end="2257" vertical-scroll-proportion="0.0" vertical-offset="692" max-vertical-offset="1547">
-          <folding />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -673,15 +630,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="88" selection-start="0" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="629">
-          <folding />
-        </state>
+        <state line="10" column="88" selection-start="0" selection-end="1051" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/Soru.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="26" selection-start="345" selection-end="345" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="323">
-          <folding />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -710,14 +667,18 @@
     <entry file="file://$PROJECT_DIR$/nisanak.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="36" selection-start="639" selection-end="639" vertical-scroll-proportion="0.0" vertical-offset="175" max-vertical-offset="629">
-          <folding />
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/Soru.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="40" selection-start="217" selection-end="217" vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="323">
-          <folding />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -748,11 +709,6 @@
         <state line="6" column="5" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="238" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="675" selection-end="675" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="697" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="129" selection-start="220" selection-end="220" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="255" />
@@ -760,9 +716,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="18" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="629">
-          <folding />
-        </state>
+        <state line="11" column="18" selection-start="467" selection-end="467" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/appsettings.cfg">
@@ -777,16 +731,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/normalize.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="1027" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="356">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="1" selection-start="2217" selection-end="2217" vertical-scroll-proportion="0.0" vertical-offset="1309" max-vertical-offset="5525">
-          <folding />
-        </state>
+        <state line="0" column="1027" selection-start="1027" selection-end="1027" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="356" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/classie.js">
@@ -796,84 +741,113 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/stepsForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="47" selection-start="2345" selection-end="2349" vertical-scroll-proportion="40.884617" vertical-offset="2491" max-vertical-offset="4097">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="84" column="47" selection-start="2345" selection-end="2349" vertical-scroll-proportion="0.0" vertical-offset="2491" max-vertical-offset="4097" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/jquery.simpleplayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="52" selection-start="759" selection-end="765" vertical-scroll-proportion="-16.0" vertical-offset="26" max-vertical-offset="1853">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state line="26" column="52" selection-start="759" selection-end="765" vertical-scroll-proportion="0.0" vertical-offset="26" max-vertical-offset="1853" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/simpleplayer.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="45" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/fonts/glyphicons-halflings-regular.woff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-7.816156" vertical-offset="2806" max-vertical-offset="3332" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/fonts/icomoon/icomoon.woff">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="359" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="34" selection-start="521" selection-end="521" vertical-scroll-proportion="4.230769" vertical-offset="297" max-vertical-offset="1003" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/question.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="126" column="25" selection-start="5433" selection-end="5433" vertical-scroll-proportion="-13.384615" vertical-offset="1794" max-vertical-offset="2669">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/component.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="4" selection-start="2057" selection-end="2057" vertical-scroll-proportion="0.3705357" vertical-offset="1483" max-vertical-offset="5525">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/demo.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="22" selection-start="798" selection-end="798" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2720">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nisanak.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="5" selection-start="5308" selection-end="5308" vertical-scroll-proportion="0.0" vertical-offset="1820" max-vertical-offset="2482">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/simpleplayer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="45" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/addquestion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="189" column="41" selection-start="8843" selection-end="8843" vertical-scroll-proportion="-10.192307" vertical-offset="2948" max-vertical-offset="4947">
+        <state line="16" column="6" selection-start="730" selection-end="730" vertical-scroll-proportion="0.6445498" vertical-offset="0" max-vertical-offset="2686">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/fix.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="16" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
+        <state line="26" column="19" selection-start="440" selection-end="440" vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="731">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/addquestion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="25" selection-start="1037" selection-end="1037" vertical-scroll-proportion="33.807693" vertical-offset="1270" max-vertical-offset="4947">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/User.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="32" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+        <state line="9" column="38" selection-start="286" selection-end="286" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Models/Answers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="8" selection-start="313" selection-end="313" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="28" selection-start="354" selection-end="354" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cevaplar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="38" column="28" selection-start="1332" selection-end="1332" vertical-scroll-proportion="-2.2692308" vertical-offset="587" max-vertical-offset="1054">
+          <folding>
+            <element signature="e#991#1027#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Models/Soru.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="32" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="33" selection-start="869" selection-end="869" vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="1003">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/question.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="0" selection-start="5846" selection-end="5846" vertical-scroll-proportion="0.33162394" vertical-offset="2101" max-vertical-offset="2737">
+        <state line="23" column="35" selection-start="672" selection-end="672" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="595">
           <folding>
-            <element signature="e#495#523#0" expanded="true" />
-            <element signature="e#1315#1338#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nisanak.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="204" column="0" selection-start="7324" selection-end="7324" vertical-scroll-proportion="0.76454294" vertical-offset="3192" max-vertical-offset="3842">
+          <folding>
+            <element signature="e#24#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
