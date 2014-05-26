@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for i in cevaplar %}
+        <p>{{ i.sound }}</p>
+        <hr/>
+        {% for c in i.ans %}
+            {% if c.user.musician==True %}
+                <p class="musician">Musician, </p>
+            {% else %}
+                <p class="musician">Not Musician, </p>
+            {% endif %}
+
+            {% if c.user.sex=="0" %}
+                <p class="sex">Erkek, </p>
+            {% else %}
+                <p class="sex">Kadın, </p>
+            {% endif %}
+
+            <p class="age"> Yaş: {{ c.user.age }} </p>
+            <div class="clearfix"></div>
+            {% if c.subsoru.comment %}
+                <p><b>Yorum sorusu: </b>{{ c.subsoru.comment }}</p>
+            {% else %}
+                <p><b>Çoktan seçmeli soru: </b>{{ c.subsoru.soru }}</p>
+            {% endif %}
+            <p><b>Cevap: ({{ c.correct }}) </b>{{ c.cevap }}</p>
+            <hr/>
+        {% endfor %}
+        <hr/>
+<div id="chart_div{{ loop.index }}" style="width: 900px; height: 500px;"></div>
+    {% endfor %}
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+        chart.draw(data, options);
+      }
+    </script>
+{% endblock %}
