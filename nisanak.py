@@ -140,6 +140,7 @@ def register():
         u.age = request.args.get("age")
         u.sex = request.args.get("sex")
         u.musician = json.loads(request.args.get("musician"))
+        u.yil = int(request.args.get("yil"))
         u.save()
         session['user'] = u.to_json()
         return redirect("/question")

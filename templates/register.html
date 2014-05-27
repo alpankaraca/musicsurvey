@@ -18,13 +18,20 @@
             </select>
             <a class="btn btn-default btn-sm" id="enter">Giriş <i class="glyphicon glyphicon-music"></i></a>
 
+            <div id="kacyil" class="form-group hidden" style="margin-top: 5px;">
+                <label for="exampleInputEmail1">Kaç yıldır müzikle uğraşıyorsunuz?</label>
+                <input type="number" class="form-control input-sm" id="yil" placeholder="?" style="width: 50px;margin-left: 25px;">
+            </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="musician"> Müzisyenseniz bu kutuyu işaretleyin
                 </label>
             </div>
+
         </div>
-    <div class="clearfix"></div>
+
+
+        <div class="clearfix"></div>
     </div>
 
 
@@ -33,9 +40,23 @@
 {% block js %}
     <script>
         $(document).ready(function () {
+            var checked = false;
+            $("#musician").on("change", function () {
+                if (checked == false) {
+                    $("#kacyil").removeClass("hidden");
+                    checked = true;
+                    console.log("on");
+                } else {
+                    $("#kacyil").addClass("hidden");
+                    checked = false;
+                    console.log("off");
+                }
+            })
+
             $("#enter").on("click", function () {
+                var yil = $("#yil").val();
                 console.log("annen");
-                $.post("?age=" + $("#age").val() + "&sex=" + $("#sex").val() + "&musician=" + $("#musician").is(':checked'), function () {
+                $.post("?age=" + $("#age").val() + "&sex=" + $("#sex").val() + "&musician=" + $("#musician").is(':checked')+"&yil="+yil, function () {
                     //console.log("?age="+$("#age").val()+"&sex="+$("#sex").val()+"&musician="+$("#musician").is(':checked'));
                     window.location.replace("/question");
                 })

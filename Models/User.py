@@ -8,3 +8,4 @@ class User(document.Document):
     age = fields.StringField()
     answers = fields.ListField(fields.BooleanField())
     score = fields.IntField(default=0)
+    yil = fields.IntField(default=0)
