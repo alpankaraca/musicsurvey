@@ -46,4 +46,5 @@
 .register {
     margin: 0 auto;
     width: 350px;
+    max-width: 100%;
 }

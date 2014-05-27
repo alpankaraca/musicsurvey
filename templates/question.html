@@ -3,8 +3,8 @@
 {% block content %}
     <div class="col-xs-12 show-questions">
         <div class="page-header">
-            <h1>Welcome to my survey
-                <small>let's see what you got</small>
+            <h1>Ankete hoşgeldiniz
+                <small>sırayla soruyu cevapladıktan sonra geç butonuna basın.</small>
             </h1>
         </div>
         {% for s in ses %}
@@ -17,7 +17,7 @@
 <span>
                         <a class="col-md-2 col-xs-12 btn btn-default btn-next" data-name="{{ loop.index }}"
                            data-id="{{ s.id }}">
-                            Start <i class="glyphicon glyphicon-hand-right"></i>
+                            Başlat <i class="glyphicon glyphicon-hand-right"></i>
                         </a></span>
 
                     <div class="clearfix"></div>
@@ -33,7 +33,7 @@
                             <div class="">
                                 <a class="btn btn-default pull-right btn-next" data-name="{{ q.id }}"
                                    data-id="c-{{ s.id }}">
-                                    Next <i class="glyphicon glyphicon-hand-right"></i>
+                                    Geç <i class="glyphicon glyphicon-hand-right"></i>
                                 </a>
 
                                 <div class="clearfix"></div>
@@ -78,16 +78,19 @@
                             <div class="">
                                 <a class="btn btn-default pull-right btn-next" data-name="{{ q.id }}"
                                    data-id="m-{{ s.id }}">
-                                    Next <i class="glyphicon glyphicon-hand-right"></i>
+                                    Geç <i class="glyphicon glyphicon-hand-right"></i>
                                 </a>
 
                                 <div class="clearfix"></div>
                             </div>
+            <div class="clearfix"></div>
                         </div>
+            <div class="clearfix"></div>
                     {% endif %}
                 {% else %}
                     <em>No questions added</em>
                 {% endfor %}
+            <div class="clearfix"></div>
 
             </div>
         {% endfor %}
@@ -98,7 +101,9 @@
             </a>
             <div class="clearfix"></div>
         </div>
+            <div class="clearfix"></div>
     </div>
+            <div class="clearfix"></div>
 
     <div class="col-xs-12 forms">
         <form id="form1" method="post" action="json.html" class="bbq">
