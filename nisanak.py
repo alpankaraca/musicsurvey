@@ -70,7 +70,7 @@ def addquestion():
                 newnow = nowstr[0] + "-" + nowstr[1]
                 s.save()
                 filename = str(s.id) + "-" + str(today) + "-" + str(newnow) + "-" + secure_filename(file.filename)
-                file.save(os.path.join(os.path.abspath(os.path.dirname(__file__) + current_app.config['UPLOAD_FOLDER']), filename))
+                file.save(os.path.join(os.path.abspath(current_app.config['UPLOAD_FOLDER']), filename))
                 s.sound = filename
                 s.save()
                 return render_template("addquestion.html", audio=filename, id=s.id)
