@@ -28,30 +28,45 @@
             <hr/>
         {% endfor %}
         <hr/>
-<div id="chart_div{{ loop.index }}" style="width: 900px; height: 500px;"></div>
+        <div id="chart_div{{ loop.index }}" style="width: 900px; height: 500px;"></div>
     {% endfor %}
 {% endblock %}
 {% block js %}
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
-        ]);
+        google.load("visualization", "1", {packages: ["corechart"]});
+        google.setOnLoadCallback(drawChart);
 
-        var options = {
-          title: 'Company Performance',
-          hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
-        };
+            //var armut = [];
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
-        chart.draw(data, options);
-      }
+        function drawChart() {
+           {# console.log("annen");
+            $.getJSON("?chart=5381fce045219e0a74c66881", function (data) {
+                armut = google.visualization.arrayToDataTable([
+                    ['Yaş', 'Kadın', 'Erkek']
+                ]);
+                console.log(armut);
+                for (var i in data) {
+                    console.log(data[i]);
+                    armut.push([i, data[i].kadin.length, data[i].erkek.length]);
+
+                }
+                console.log(data);
+                console.log("aa");
+            });#}
+            var data = google.visualization.arrayToDataTable([
+                ['Shift', 'Rez.', 'Kuver'],
+                {% for i in data %}
+                    ["{{ i }}", {{ data[i].kadin.length() }}, {{ data[i].erkek.length() }}],
+                {% endfor %}
+            ]);
+            var options = {
+                title: 'Company Performance',
+                hAxis: {title: 'Year', titleTextStyle: {color: 'red'}}
+            };
+
+            var chart = new google.visualization.ColumnChart(document.getElementById('chart_div1'));
+            chart.draw(data, options);
+        }
     </script>
 {% endblock %}

@@ -91,6 +91,13 @@
 
             </div>
         {% endfor %}
+        <div class="well step sondiv">
+            Teşekkürler
+            <a class="btn btn-default pull-right btn-next">
+                Tamamla <i class="glyphicon glyphicon-hand-right"></i>
+            </a>
+            <div class="clearfix"></div>
+        </div>
     </div>
 
     <div class="col-xs-12 forms">
@@ -109,41 +116,47 @@
 
         $(document).ready(function () {
             var h = $(".step").first().height() + 'px';
-            $(".step").first().show().css("height",h);
+            $(".step").first().show().css("height", h);
             console.log(h);
 
 
-
             $(".btn-next").on("click", function () {
-                var dataid = $(this).attr("data-id");
-                var dataname = $(this).attr("data-name");
-                if(dataid.substring(0,1)=="m"){
-                    var subid = 'qm-'+dataid.substring(2);
-                    var val = $("[name="+subid+"]:checked").val();
-                    $.post("?multi="+dataname+"&val="+val+"&ses="+dataid.substring(2), function(){});
-                    //console.log(dataid.substring(2))
-                }else
-                if(dataid.substring(0,1)=="c"){
-                    var subid = 'cm-'+dataid.substring(2);
-                    var val = $("."+subid).val();
-                    console.log(val);
-                    $.post("?comment="+dataname+"&val="+val+"&ses="+dataid.substring(2), function(){});
-                    //console.log(dataid.substring(2))
+                if ($(this).parent().hasClass("sondiv")) {
+                    $.post("?sondiv=1",function() {
+                        window.location.href = '/tamamlandi'
+                    });
+                } else {
+                    var dataid = $(this).attr("data-id");
+                    var dataname = $(this).attr("data-name");
+                    if (dataid.substring(0, 1) == "m") {
+                        var subid = 'qm-' + dataid.substring(2);
+                        var val = $("[name=" + subid + "]:checked").val();
+                        $.post("?multi=" + dataname + "&val=" + val + "&ses=" + dataid.substring(2), function () {
+                        });
+                        //console.log(dataid.substring(2))
+                    } else if (dataid.substring(0, 1) == "c") {
+                        var subid = 'cm-' + dataid.substring(2);
+                        var val = $("." + subid).val();
+                        console.log(val);
+                        $.post("?comment=" + dataname + "&val=" + val + "&ses=" + dataid.substring(2), function () {
+                        });
+                        //console.log(dataid.substring(2))
+                    }
+                    else {
+                        $.post("?sound=" + dataid, function () {
+                        });
+                    }
+
+
+                    $(this).parent().parent().addClass("smaller").delay(1000).queue(function (next) {
+                        $(this).remove();
+                        $(".step").first().fadeIn();
+                        var at = $(".step").first().height() + 30 + 'px';
+                        $(".step").first().css("height", at);
+                        next();
+                    });
                 }
-                else{
-                    $.post("?sound="+dataid, function(){});
-                }
 
-
-
-
-                $(this).parent().parent().addClass("smaller").delay(1000).queue(function (next) {
-                    $(this).remove();
-                    $(".step").first().fadeIn();
-                    var at = $(".step").first().height()+30 + 'px';
-                    $(".step").first().css("height",at);
-                    next();
-                });
             });
 
         });

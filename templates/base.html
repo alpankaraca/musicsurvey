@@ -6,18 +6,18 @@
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.png"/>
     <link href='//fonts.googleapis.com/css?family=Exo+2:400,500,700|Open+Sans:400,700|Jura:400,600&subset=latin,latin-ext'
           rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/static/css/fix.css"/>
     <link rel="stylesheet" href="/static/css/simpleplayer.css"/>
 
     <link rel="stylesheet" type="text/css" href="/static/css/demo.css"/>
     <link rel="stylesheet" type="text/css" href="/static/css/component.css"/>
 
+    <link rel="stylesheet" href="/static/css/fix.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 </head>
 <body>
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -33,7 +33,9 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <p class="navbar-text navbar-right"><a href="#" class="navbar-link">Contact</a></p>
+            <p class="navbar-text navbar-right">
+                <a href="#" class="navbar-link" data-toggle="modal" data-target="#myModal">iletişim</a>
+            </p>
         </div>
         <!-- /.navbar-collapse -->
     </div>
@@ -45,6 +47,26 @@
         {% block content %} {% endblock %}
     </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Bana Ulaşın</h4>
+      </div>
+      <div class="modal-body">
+            <p>E-posta: nisanak@gmail.com</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="/static/js/jquery.simpleplayer.min.js"></script>
 <script src="/static/js/bootstrap.min.js"></script>

@@ -1,9 +1,15 @@
+.body {
+    color: #ddd!important;
+}
+.dort{
+    text-align: center;
+}
 .cevap-line {
     margin-top: 10px;
 }
 .add-questions.tab-content {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #464545;
     border-top: none;
 }
 .list-group {
@@ -35,4 +41,9 @@
 .sex,
 .age {
     float: left;
+}
+
+.register {
+    margin: 0 auto;
+    width: 350px;
 }

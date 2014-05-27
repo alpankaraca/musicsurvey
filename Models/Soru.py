@@ -24,7 +24,6 @@ class Answer(document.Document):
     correct = fields.BooleanField()
 
 class Question(document.Document):
-    name = fields.StringField()
     sound = fields.StringField()
     qs = fields.ListField(fields.ReferenceField(SubQuestion))
     ans = fields.ListField(fields.ReferenceField(Answer))

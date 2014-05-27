@@ -2,7 +2,7 @@
 import datetime
 import json
 import os
-from flask import Flask, redirect, render_template, request, url_for, session, current_app
+from flask import Flask, redirect, render_template, request, url_for, session, current_app, jsonify, request
 from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
 from flask.ext.mongomyadmin import MongoMyAdmin
 from mongoengine import connect
@@ -129,6 +129,8 @@ def addquestion():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
+    if session.get("done"):
+        return redirect("/kusurabakma")
     if request.args.get("age"):
         u = User()
         u.age = request.args.get("age")
@@ -142,12 +144,22 @@ def register():
 @app.route('/adilisik')
 def adilisik():
     # remove the username from the session if it's there
-    session.pop('user', None)
+    session.pop('done', None)
     return redirect(url_for('register'))
+
+
+@app.route('/tamamlandi')
+def tamamlandi():
+
+    return render_template('tamamlandi.html')
 
 
 @app.route('/question', methods=["GET", "POST"])
 def question():
+    if session.get("done"):
+        return redirect("/kusurabakma")
+    if request.args.get("sondiv"):
+        session['done'] = "annesi"
     if request.args.get("sound"):
         print request.args.get("sound")
     if request.args.get("multi"):
@@ -199,16 +211,48 @@ def asnwers():
     if session.get("username") is "":
         return redirect("/god")
 
-    if request.args.get("chart"):
-        sound = Question.objects.get(id=request.args.get("chart"))
-        for i in sound.ans:
-
-
-
-
     soundMaster = Question.objects.all()
+    sound = Question.objects.get(id='5381fce045219e0a74c66881')
+    mus = []
+    nMus = []
+    for i in sound.ans:
+        if i.user.musician:
+            mus.append(i)
+        else:
+            nMus.append(i)
+
+    data = {'onsekiz': {'kadin': [], 'erkek': []},
+            'yirmibes': {'kadin': [], 'erkek': []},
+            'otuzbes': {'kadin': [], 'erkek': []},
+            'olds': {'kadin': [], 'erkek': []}}
+
+
+    for a in mus:
+        if a.user.age <= '18':
+            if a.user.sex=='1':
+                data['onsekiz']['kadin'].append(a.correct)
+            else:
+                data['onsekiz']['erkek'].append(a.correct)
+        elif a.user.age <= '25':
+            if a.user.sex=='1':
+                data['yirmibes']['kadin'].append(a.correct)
+            else:
+                data['yirmibes']['erkek'].append(a.correct)
+        elif a.user.age <= '35':
+            if a.user.sex=='1':
+                data['otuzbes']['kadin'].append(a.correct)
+            else:
+                data['otuzbes']['erkek'].append(a.correct)
+        else:
+            if a.user.sex=='1':
+                data['olds']['kadin'].append(a.correct)
+            else:
+                data['olds']['erkek'].append(a.correct)
+
+    print data
+
     cevaplar = Answer.objects.all().order_by('question')
-    return render_template('cevaplar.html', cevaplar=soundMaster, cinsiyet=["Erkek","Kadın"])
+    return render_template('cevaplar.html', cevaplar=soundMaster, cinsiyet=["Erkek","Kadın"], data=data)
 
 
 @app.errorhandler(404)
