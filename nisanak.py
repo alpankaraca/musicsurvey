@@ -127,6 +127,10 @@ def addquestion():
 
 
 
+@app.route('/anket', methods=["GET", "POST"])
+def anket():
+    return redirect(url_for('register'))
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if session.get("done"):
