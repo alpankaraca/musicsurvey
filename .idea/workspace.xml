@@ -29,7 +29,7 @@
       <file leaf-file-name="question.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/question.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="60" selection-start="689" selection-end="689" vertical-scroll-proportion="0.41590214" vertical-offset="102" max-vertical-offset="3332">
+            <state line="141" column="40" selection-start="6223" selection-end="6223" vertical-scroll-proportion="0.5474006" vertical-offset="2218" max-vertical-offset="3332">
               <folding>
                 <element signature="e#799#827#0" expanded="true" />
               </folding>
@@ -836,7 +836,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/question.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="60" selection-start="689" selection-end="689" vertical-scroll-proportion="0.41590214" vertical-offset="102" max-vertical-offset="3332">
+        <state line="141" column="40" selection-start="6223" selection-end="6223" vertical-scroll-proportion="0.5474006" vertical-offset="2218" max-vertical-offset="3332">
           <folding>
             <element signature="e#799#827#0" expanded="true" />
           </folding>

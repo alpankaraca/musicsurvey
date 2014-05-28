@@ -134,12 +134,12 @@
             $(".player").first().bind('ended', function () {
                 // done playing
                 if (cc==1){
-                    $(".player-1").parent().find(".text-warning").removeClass("hidden");
+                    $(".player").parent().find(".text-warning").removeClass("hidden");
                     cc = 0;
                 }else if(cc == 0){
-                    $(".player-1").parent().find(".text-warning").addClass("hidden");
-                    $(".player-1").parent().find(".kalmadi").removeClass("hidden");
-                    $(".player-1").addClass("hidden");
+                    $(".player").first().parent().find(".text-warning").addClass("hidden");
+                    $(".player").first().parent().find(".kalmadi").removeClass("hidden");
+                    $(".player").first().addClass("hidden");
                 }else{
                     cc = 1;
                 }
