@@ -2,7 +2,8 @@
 import datetime
 import json
 import os
-from flask import Flask, redirect, render_template, request, url_for, session, current_app, jsonify, request
+from flask import Flask, redirect, render_template, request, url_for, session, current_app, jsonify, request, \
+    make_response
 from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
 from flask.ext.mongomyadmin import MongoMyAdmin
 from mongoengine import connect
@@ -133,6 +134,8 @@ def anket():
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
+    if request.cookies.get('username'):
+        return redirect("/kusurabakma")
     if session.get("done"):
         return redirect("/kusurabakma")
     if request.args.get("age"):
@@ -142,7 +145,6 @@ def register():
         u.musician = json.loads(request.args.get("musician"))
         u.yil = int(request.args.get("yil"))
         u.save()
-        session['user'] = u.to_json()
         return redirect("/question")
     return render_template('register.html')
 
@@ -150,7 +152,10 @@ def register():
 def adilisik():
     # remove the username from the session if it's there
     session.pop('done', None)
-    return redirect(url_for('register'))
+    session.pop('at', None)
+    resp = make_response(redirect('/register'))
+    resp.set_cookie('username', '')
+    return resp
 
 
 @app.route('/tamamlandi')
@@ -161,11 +166,14 @@ def tamamlandi():
 
 @app.route('/question', methods=["GET", "POST"])
 def question():
+    if session.get("at"):
+        return redirect("/kusurabakma")
     if session.get("done"):
         return redirect("/kusurabakma")
     if request.args.get("sondiv"):
         session['done'] = "annesi"
     if request.args.get("sound"):
+        session['at'] = "user"
         print request.args.get("sound")
     if request.args.get("multi"):
         subq = request.args.get("multi")
@@ -204,7 +212,12 @@ def question():
 
 
     soundMaster = Question.objects.all()
-    return render_template('question.html', ses=soundMaster)
+
+    resp = make_response(render_template('question.html', ses=soundMaster, username=session.get('username')))
+    resp.set_cookie('username', 'annesi')
+
+    print request.cookies.get('username')
+    return resp
 
 
 

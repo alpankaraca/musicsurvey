@@ -10,7 +10,8 @@
         {% for s in ses %}
             <div class="show-soru">
                 <div class="well step">
-                    <audio class="col-md-10 col-xs-12" src="/static/audio/{{ s.sound }}" controls="controls"
+                    <audio class="col-md-10 col-xs-12 player-{{ loop.index }}" src="/static/audio/{{ s.sound }}"
+                           controls="controls"
                            style="margin-bottom: 10px;">
                         Your browser does not support the <code>audio</code> element.
                     </audio>
@@ -83,14 +84,14 @@
 
                                 <div class="clearfix"></div>
                             </div>
-            <div class="clearfix"></div>
+                            <div class="clearfix"></div>
                         </div>
-            <div class="clearfix"></div>
+                        <div class="clearfix"></div>
                     {% endif %}
                 {% else %}
                     <em>No questions added</em>
                 {% endfor %}
-            <div class="clearfix"></div>
+                <div class="clearfix"></div>
 
             </div>
         {% endfor %}
@@ -99,11 +100,12 @@
             <a class="btn btn-default pull-right btn-next">
                 Tamamla <i class="glyphicon glyphicon-hand-right"></i>
             </a>
+
             <div class="clearfix"></div>
         </div>
-            <div class="clearfix"></div>
+        <div class="clearfix"></div>
     </div>
-            <div class="clearfix"></div>
+    <div class="clearfix"></div>
 
     <div class="col-xs-12 forms">
         <form id="form1" method="post" action="json.html" class="bbq">
@@ -124,10 +126,19 @@
             $(".step").first().show().css("height", h);
             console.log(h);
 
+            var bir = 2;
+            var iki = 2;
+            var uc = 2;
+            var dort = 2;
+
+            $(".player1").bind('ended', function () {
+                // done playing
+                alert("Player stopped");
+            });
 
             $(".btn-next").on("click", function () {
                 if ($(this).parent().hasClass("sondiv")) {
-                    $.post("?sondiv=1",function() {
+                    $.post("?sondiv=1", function () {
                         window.location.href = '/tamamlandi'
                     });
                 } else {
