@@ -10,16 +10,19 @@
         {% for s in ses %}
             <div class="show-soru">
                 <div class="well step">
+                    <p class="col-md-10 col-xs-12 text-warning hidden">1 dinleme hakkınız kaldı.</p>
+                    <p class="col-md-10 col-xs-12 text-danger hidden">Tüm haklarınızı kullandınız devam etmek için "başlat" düğmesine basınız.</p>
                     <audio class="col-md-10 col-xs-12 player-{{ loop.index }}" src="/static/audio/{{ s.sound }}"
                            controls="controls"
                            style="margin-bottom: 10px;">
                         Your browser does not support the <code>audio</code> element.
                     </audio>
 <span>
-                        <a class="col-md-2 col-xs-12 btn btn-default btn-next" data-name="{{ loop.index }}"
+                        <a class="col-md-2 col-xs-12 btn btn-default btn-next pull-right" data-name="{{ loop.index }}"
                            data-id="{{ s.id }}">
                             Başlat <i class="glyphicon glyphicon-hand-right"></i>
-                        </a></span>
+                        </a>
+                    <div class="clearfix"></div></span>
 
                     <div class="clearfix"></div>
                 </div>
@@ -126,22 +129,20 @@
             $(".step").first().show().css("height", h);
             console.log(h);
 
-            var bir = 2;
-            var iki = 2;
-            var uc = 2;
-            var dort = 2;
+            var cc = 2;
 
-            $(".player-1").bind('ended', function () {
+            $(".player").first().bind('ended', function () {
                 // done playing
-                alert("Player stopped");
-            });
-            $(".player-2").bind('ended', function () {
-                // done playing
-                alert("Player stopped");
-            });
-            $(".player-3").bind('ended', function () {
-                // done playing
-                alert("Player stopped");
+                if (cc==1){
+                    $(".player-1").parent().find(".text-warning").removeClass("hidden");
+                    cc = 0;
+                }else if(cc == 0){
+                    $(".player-1").parent().find(".text-warning").addClass("hidden");
+                    $(".player-1").parent().find(".kalmadi").removeClass("hidden");
+                    $(".player-1").addClass("hidden");
+                }else{
+                    cc = 1;
+                }
             });
 
             $(".btn-next").on("click", function () {
@@ -167,6 +168,7 @@
                         //console.log(dataid.substring(2))
                     }
                     else {
+                        cc=2;
                         $.post("?sound=" + dataid, function () {
                         });
                     }
