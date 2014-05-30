@@ -1,22 +1,13 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <div class="col-xs-12 show-questions">
-        <div class="page-header">
-            <h4 class="seskac"></h4>
-            <small class="small">Şimdi birden fazla insanın aynı anda konuştuğu bir ses kesiti dinleyeceksiniz. Bu konuşmalar diyalog değil, bireysel monologlardır. Bu ses kesitini iki kez dinleyebilirsiniz. Başlat'a tıkladığınızda her soru tek tek karşınıza gelecektir. Lütfen emin olmadan bir sonraki soruya geçmeyin. Geri dönüş hakkınız olmayacak.</small>
-        </div>
-        {% for s in ses %}
+{% for s in ses %}
             <div class="show-soru">
-                <div class="well step audio" id="Ses-{{ loop.index }}">
+                <div class="well step">
+                    <p class="col-md-10 col-xs-12 text-warning hidden">1 dinleme hakkınız kaldı.</p>
+                    <p class="col-md-10 col-xs-12 text-danger kalmadi hidden">Tüm haklarınızı kullandınız devam etmek için "başlat" düğmesine basınız.</p>
                     <audio class="col-md-10 col-xs-12 player" src="/static/audio/{{ s.sound }}"
                            controls="controls"
                            style="margin-bottom: 10px;">
                         Your browser does not support the <code>audio</code> element.
                     </audio>
-                    <p class="col-md-10 col-xs-12 text-warning hidden">1 dinleme hakkınız kaldı.</p>
-                    <p class="col-md-10 col-xs-12 text-danger kalmadi hidden">Tüm haklarınızı kullandınız devam etmek için "başlat" düğmesine basınız.</p>
-
 <span>
                         <a class="col-md-2 col-xs-12 btn btn-default btn-next pull-right" data-name="{{ loop.index }}"
                            data-id="{{ s.id }}">
@@ -47,46 +38,36 @@
                         <div class="well step"><b>{{ q.soru }}</b>
 
                             <div class="col-xs-12">
-                                {% if q.answera %}
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="qm-{{ s.id }}" value="{{ q.answera }}">
                                         {{ q.answera }}
                                     </label>
                                 </div>
-                                {% endif %}
-                                {% if q.answerb %}
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="qm-{{ s.id }}" value="{{ q.answerb }}">
                                         {{ q.answerb }}
                                     </label>
                                 </div>
-                                {% endif %}
-                                {% if q.answerc %}
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="qm-{{ s.id }}" value="{{ q.answerc }}">
                                         {{ q.answerc }}
                                     </label>
                                 </div>
-                                {% endif %}
-                                {% if q.answerd %}
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="qm-{{ s.id }}" value="{{ q.answerd }}">
                                         {{ q.answerd }}
                                     </label>
                                 </div>
-                                {% endif %}
-                                {% if q.answere %}
                                 <div class="radio">
                                     <label>
                                         <input type="radio" name="qm-{{ s.id }}" value="{{ q.answere }}">
                                         {{ q.answere }}
                                     </label>
                                 </div>
-                                {% endif %}
                             </div>
 
                             <div class="">
@@ -108,13 +89,68 @@
 
             </div>
         {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="col-xs-12 show-questions">
+        <div class="page-header">
+            <h1>Ankete hoşgeldiniz
+                <small>sırayla soruyu cevapladıktan sonra geç butonuna basın.</small>
+            </h1>
+        </div>
+        <div class="well step">
+            <p class="col-md-10 col-xs-12 text-warning hidden">1 dinleme hakkınız kaldı.</p>
+
+            <p class="col-md-10 col-xs-12 text-danger kalmadi hidden">Tüm haklarınızı kullandınız devam etmek için
+                "başlat" düğmesine basınız.</p>
+            <audio class="col-md-10 col-xs-12 player" src=""
+                   controls="controls"
+                   style="margin-bottom: 10px;">
+                Your browser does not support the <code>audio</code> element.
+            </audio>
+<span>
+                <a class="col-md-2 col-xs-12 btn btn-default btn-next pull-right">
+                    Başlat <i class="glyphicon glyphicon-hand-right"></i>
+                </a>
+                    <div class="clearfix"></div></span>
+
+            <div class="clearfix"></div>
+        </div>
+
         <div class="well step sondiv">
-            <h1>Teşekkürler</h1>
+            Teşekkürler
+            <a class="btn btn-default pull-right btn-next">
+                Tamamla <i class="glyphicon glyphicon-hand-right"></i>
+            </a>
 
-        <p>Deneye katıldığınız için teşekkürler. Sorularınız ve yorumlarınız için bana ulaşabilirsiniz..</p>
-        <p class="text-right" style="margin-right: 2px;">Nisan Ak</p>
-
-        <a class="btn btn-default pull-right" data-toggle="modal" data-target="#myModal">Bana Ulaşın</a>
             <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>
@@ -136,28 +172,39 @@
     <script>
 
         $(document).ready(function () {
-            var h = $(".step").first().height()+50 + 'px';
+
+            var sArray = [];
+
+            $.getJSON("?verhepsini=1", function (data) {
+                console.log(data);
+                for (var i in data) {
+                    console.log(data[i].sound);
+                    sArray.push(data[i].sound);
+                }
+                $(".player").attr("src","/static/audio/"+sArray[0]);
+                console.log($(".player").attr("src"));
+            })
+
+            var h = $(".step").first().height() + 'px';
             $(".step").first().show().css("height", h);
             console.log(h);
 
-
-                            $(".seskac").html($(".step").first().attr("id"));
-
             var cc = 2;
 
-            $(".player").bind('ended', function () {
+            $(".player").first().bind('ended', function () {
                 // done playing
                 console.log("bittiii");
-                if (cc==2){
-                    $(".player").parent().find(".text-warning").first().removeClass("hidden");
-                    $(".player").first().load();
+                if (cc == 2) {
+                    $(".player").parent().find(".text-warning").removeClass("hidden");
+                    $(".player").load();
                     cc = 1;
-                }else if(cc == 1){
+                } else if (cc == 1) {
                     $(".player").first().parent().find(".text-warning").addClass("hidden");
                     $(".player").first().parent().find(".kalmadi").removeClass("hidden");
                     $(".player").first().addClass("hidden");
                     cc = 0;
-                };
+                }
+                ;
                 return false;
             });
 
@@ -175,8 +222,16 @@
                         $.post("?multi=" + dataname + "&val=" + val + "&ses=" + dataid.substring(2), function () {
                         });
                         //console.log(dataid.substring(2))
-                    } else {
-                        cc=2;
+                    } else if (dataid.substring(0, 1) == "c") {
+                        var subid = 'cm-' + dataid.substring(2);
+                        var val = $("." + subid).val();
+                        console.log(val);
+                        $.post("?comment=" + dataname + "&val=" + val + "&ses=" + dataid.substring(2), function () {
+                        });
+                        //console.log(dataid.substring(2))
+                    }
+                    else {
+                        cc = 2;
                         $.post("?sound=" + dataid, function () {
                         });
                     }
@@ -184,20 +239,8 @@
 
                     $(this).parent().parent().addClass("smaller").delay(1000).queue(function (next) {
                         $(this).remove();
-                            $(".seskac").html("");
-                        var he = $(".step").first().height()+50 + 'px';
-                        $(".step").first().css("height", he);
                         $(".step").first().fadeIn();
-                        if ($(".step").first().hasClass("sondiv")) {
-                            $(".page-header").fadeOut();
-                            $.post("?sondiv=1", function () {
-                                window.location.href = '/tamamlandi'
-                            });
-                        }
-                        if ($(".step").first().hasClass("audio")) {
-                            $(".seskac").html($(".step").first().attr("id"));
-                        }
-                        var at = $(".step").first().height() + 20 + 'px';
+                        var at = $(".step").first().height() + 30 + 'px';
                         $(".step").first().css("height", at);
                         next();
                     });

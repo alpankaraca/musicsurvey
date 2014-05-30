@@ -2,13 +2,15 @@
 
 {% block content %}
     <div class="jumbotron">
-        <h1>Hello, world!</h1>
+        <h3>Merhaba,</h3>
 
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called a
-            jumbotron and three supporting pieces of content. Use it as a starting point to create something more
-            unique.</p>
+        <p class="ana-p">Birden fazla sesi aynı anda dinleme eğitimi almış müzisyenlerin, müzisyen olmayanlara oranla çoğul monologları daha iyi takip edip edemeyeceklerini anlamaya çalışan bir deney yapıyorum.</p>
 
-        <div class=" form-inline register col-xs-12 center-block">
+<p class="ana-p">Deney boyunca aynı anda konuşan insanlardan oluşan 4 ses kesiti dinleyeceksiniz ve sizden bu ses kesitleriyle ilgili sorulmuş detay sorularını cevaplamanız istenecek.</p>
+
+<p class="ana-p">Bu deneyi yalnızca bir defa yapabilirsiniz. </p>
+
+        <div class=" form-inline register col-xs-12 pull-right">
             <div class="form-group">
                 <input type="number" class="form-control input-sm" id="age" placeholder="Yaş">
             </div>
@@ -54,7 +56,10 @@
             })
 
             $("#enter").on("click", function () {
-                var yil = $("#yil").val();
+                var yil = 0;
+                if($("#yil").val() != ""){
+                    yil = $("#yil").val();
+                };
                 console.log("annen");
                 $.post("?age=" + $("#age").val() + "&sex=" + $("#sex").val() + "&musician=" + $("#musician").is(':checked')+"&yil="+yil, function () {
                     //console.log("?age="+$("#age").val()+"&sex="+$("#sex").val()+"&musician="+$("#musician").is(':checked'));

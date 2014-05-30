@@ -170,6 +170,11 @@ def question():
         return redirect("/kusurabakma")
     if session.get("done"):
         return redirect("/kusurabakma")
+
+    if request.args.get("verhepsini"):
+        return Question.objects.all().to_json()
+
+
     if request.args.get("sondiv"):
         session['done'] = "annesi"
     if request.args.get("sound"):
